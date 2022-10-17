@@ -14,7 +14,7 @@ class Style {
 
   static const Color informationText = Color(0xff07AEB9);
 
-  static const Color primary = Color(0xff19BAEE);
+  static const Color primary = Color(0xff74de43);
 
   static const Color primaryVariant = Color(0xff298BE2);
 
@@ -69,7 +69,7 @@ class Style {
 
   static const Color subTextDark = Color(0xff7A7B85);
 
-  static const Color black = Color(0x00000000);
+  static const Color black = Color(0xFB000000);
 
   static const Color black45 = Color(0x73000000);
 

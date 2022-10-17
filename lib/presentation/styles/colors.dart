@@ -14,6 +14,8 @@ class CustomColorSet {
 
   final Color white;
 
+  final Color black;
+
   final Color icon;
 
   final Color negative;
@@ -35,6 +37,7 @@ class CustomColorSet {
     required this.negative,
     required this.grey,
     required this.backgroundColor,
+    required this.black,
 
   });
 
@@ -52,6 +55,8 @@ class CustomColorSet {
     const primary = Style.primary;
 
     const white = Style.white;
+
+    const black = Style.black;
 
     const icon = Style.icon;
 
@@ -71,6 +76,7 @@ class CustomColorSet {
       stoke: stoke,
       primary: primary,
       white: white,
+      black: black,
       icon: icon,
       negative: negative,
       grey: grey,

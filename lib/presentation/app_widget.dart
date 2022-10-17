@@ -7,6 +7,7 @@ import 'package:mukhiddin_cv/presentation/pages/no_connection_page.dart';
 import 'package:mukhiddin_cv/presentation/pages/splash_page.dart';
 import 'package:mukhiddin_cv/presentation/styles/theme.dart';
 import 'package:mukhiddin_cv/presentation/test.dart';
+import 'package:provider/provider.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -28,7 +29,16 @@ class AppWidget extends StatelessWidget {
            final ConnectivityResult connectivity = data?[0];
            final CustomTheme theme = data?[1];
 
-           return  connectivity.hasNetworkConnection ? HomePage() : NoNetworkPage();
+           if (connectivity.hasNetworkConnection) {
+             return ChangeNotifierProvider(
+                 create: (_)=> theme,
+                 builder: (context, child) {
+                   return HomePage();
+                 },
+             );
+           } else {
+             return NoNetworkPage();
+           }
          }
          else{
            return TestPage();
