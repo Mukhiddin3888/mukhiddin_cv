@@ -1,8 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mukhiddin_cv/presentation/pages/home.dart';
+import 'package:logging/logging.dart';
+import 'package:mukhiddin_cv/presentation/app_widget.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+
 void main() {
+  _setupLogging();
+
   runApp( const MyApp());
 }
 
@@ -23,7 +28,16 @@ class MyApp extends StatelessWidget {
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
           background: Container(color: const Color(0xFFF5F5F5))),
-      home: const HomePage(),
+      home: const AppWidget(),
     );
   }
 }
+
+void _setupLogging() => Logger.root
+  ..level = kDebugMode ? Level.ALL : Level.WARNING
+  ..onRecord.listen((record) => debugPrint(
+    '${record.level.name}: '
+        '${record.time} '
+        '${record.loggerName}: '
+        '${record.message}',
+  ));
